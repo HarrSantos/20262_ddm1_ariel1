@@ -1,77 +1,77 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{
+        light: '#1D3D47',
+        dark: '#1D3D47',
+      }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/super-onze-inazuma-japan-1536x864.webp')}
           style={styles.reactLogo}
+          contentFit="cover"
         />
-      }>
+      }
+    >
+      {/* Título */}
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+        <ThemedText style={styles.title} type="title">
+          Welcome Inazuma Eleven!
         </ThemedText>
       </ThemedView>
+
+      {/* Sobre Inazuma Eleven */}
       <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+        <ThemedText type="subtitle">
+          ⚡ Sobre Inazuma Eleven
+        </ThemedText>
 
         <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
+          Inazuma Eleven é uma série de futebol cheia de partidas
+          emocionantes, técnicas especiais e grandes rivais.
         </ThemedText>
       </ThemedView>
+
+      {/* Times e Jogadores */}
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+        <ThemedText type="subtitle">
+          🏆 Times e Jogadores
+        </ThemedText>
+
         <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          Conheça a Raimon, a Inazuma Japan e os jogadores que
+          fizeram história dentro e fora do campo.
+        </ThemedText>
+      </ThemedView>
+
+      {/* Técnicas Especiais */}
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">
+          🔥 Técnicas Especiais
+        </ThemedText>
+
+        <ThemedText>
+          Explore técnicas como Fire Tornado, God Hand e muitas
+          outras habilidades incríveis usadas durante as partidas.
+        </ThemedText>
+      </ThemedView>
+
+      {/* Sua Jornada */}
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">
+          🌟 Sua Jornada
+        </ThemedText>
+
+        <ThemedText>
+          Descubra personagens, equipes, técnicas e momentos
+          inesquecíveis do universo de Inazuma Eleven!
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
@@ -80,19 +80,39 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
+    width: '100%',
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
+    paddingVertical: 25,
+    backgroundColor: '#1D3D47',
   },
+
+  title: {
+    fontSize: 48,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    textAlign: 'center',
+
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: {
+      width: 3,
+      height: 3,
+    },
+    textShadowRadius: 6,
+  },
+
   stepContainer: {
     gap: 8,
     marginBottom: 8,
+    padding: 20,
+    backgroundColor: '#1D3D47',
   },
+
   reactLogo: {
-    height: 178,
-    width: 290,
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
     bottom: 0,
     left: 0,
-    position: 'absolute',
   },
 });
