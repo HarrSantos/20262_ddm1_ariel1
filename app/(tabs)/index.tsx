@@ -1,118 +1,159 @@
-import { Image } from 'expo-image';
-import { StyleSheet } from 'react-native';
-
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { IconSymbol } from '@/components/ui/icon-symbol';
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{
-        light: '#1D3D47',
-        dark: '#1D3D47',
-      }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/super-onze-inazuma-japan-1536x864.webp')}
-          style={styles.reactLogo}
-          contentFit="cover"
-        />
-      }
+
+    <View
+      style={styles.container}
     >
-      {/* Título */}
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText style={styles.title} type="title">
-          Welcome Inazuma Eleven!
-        </ThemedText>
-      </ThemedView>
 
-      {/* Sobre Inazuma Eleven */}
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">
-          ⚡ Sobre Inazuma Eleven
-        </ThemedText>
+      <View
+        style={styles.header}>
+        <Text style={styles.title}>
+          Harr
+        </Text>
+        <View style={styles.profile}></View>
+      </View>
 
-        <ThemedText>
-          Inazuma Eleven é uma série de futebol cheia de partidas
-          emocionantes, técnicas especiais e grandes rivais.
-        </ThemedText>
-      </ThemedView>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.content}
+      >
+        <View style={styles.post}>
 
-      {/* Times e Jogadores */}
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">
-          🏆 Times e Jogadores
-        </ThemedText>
+          <View style={styles.postHeader}>
+            <View style={styles.postProfile}>
+            </View>
 
-        <ThemedText>
-          Conheça a Raimon, a Inazuma Japan e os jogadores que
-          fizeram história dentro e fora do campo.
-        </ThemedText>
-      </ThemedView>
+            <View style={styles.postUserInfo}>
+              <Text style={styles.postName}>Ariel</Text>
+              <Text style={styles.postUsername}>@ariel</Text>
+            </View>
+          </View>
 
-      {/* Técnicas Especiais */}
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">
-          🔥 Técnicas Especiais
-        </ThemedText>
+          <Text style={styles.postText}>
+            {/* texto do post */}
+            ariel
+          </Text>
 
-        <ThemedText>
-          Explore técnicas como Fire Tornado, God Hand e muitas
-          outras habilidades incríveis usadas durante as partidas.
-        </ThemedText>
-      </ThemedView>
+          <View style={styles.postActions}>
 
-      {/* Sua Jornada */}
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">
-          🌟 Sua Jornada
-        </ThemedText>
+            <Pressable>
+              <IconSymbol
+                size={20}
+                name="paperplane.fill"
+                color="#A0A0A0"
+              />
+            </Pressable>
 
-        <ThemedText>
-          Descubra personagens, equipes, técnicas e momentos
-          inesquecíveis do universo de Inazuma Eleven!
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+            <Pressable>
+              <IconSymbol
+                size={20}
+                name="paperplane.fill"
+                color="#A0A0A0"
+              />
+            </Pressable>
+
+            <Pressable>
+              <IconSymbol
+                size={20}
+                name="paperplane.fill"
+                color="#A0A0A0"
+              />
+            </Pressable>
+
+          </View>
+
+        </View>
+      </ScrollView>
+
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    width: '100%',
+  container: {
+    flex: 1,
+    backgroundColor: '#121212',
+  },
+
+  header: {
+    height: 60,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-    backgroundColor: '#1D3D47',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    backgroundColor: '#1E1E1E',
+  },
+
+  profile: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#555',
   },
 
   title: {
-    fontSize: 48,
-    fontWeight: '900',
     color: '#FFFFFF',
-    textAlign: 'center',
-
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: {
-      width: 3,
-      height: 3,
-    },
-    textShadowRadius: 6,
+    fontSize: 22,
+    fontWeight: 'bold',
   },
 
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-    padding: 20,
-    backgroundColor: '#1D3D47',
+  scrollView: {
+    flex: 1,
   },
 
-  reactLogo: {
+  content: {
+    paddingVertical: 10,
+  },
+
+  post: {
     width: '100%',
-    height: '100%',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
+    padding: 15,
   },
+
+  postHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  postProfile: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#555',
+  },
+
+  postUserInfo: {
+    marginLeft: 10,
+  },
+
+  postName: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
+  postUsername: {
+    color: '#c1c1c1',
+    fontSize: 14,
+  },
+
+  postText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+  },
+
+  postActions: {
+    flexDirection: 'row',
+    gap: 30,
+  }
+
 });
