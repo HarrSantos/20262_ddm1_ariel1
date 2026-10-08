@@ -1,6 +1,6 @@
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import {
-  Pressable,
+  ImageBackground,
   ScrollView,
   StyleSheet,
   Text,
@@ -17,61 +17,28 @@ export default function HomeScreen() {
       <View
         style={styles.header}>
         <Text style={styles.title}>
-          Harr
+          Valorant Guia
         </Text>
-        <View style={styles.profile}></View>
+        <View style={styles.profile}>
+          <IconSymbol
+            size={28}
+            name="person.fill"
+            color="white"
+          />
+        </View>
       </View>
+
+      <ImageBackground
+        source={require('@/assets/images/agent-viper-valorant-riot-video-game-wallpaper-2560x1024_99.jpg')}
+        style={styles.fundo}
+        resizeMode="contain"
+      >
+      </ImageBackground>
 
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.content}
       >
-        <View style={styles.post}>
-
-          <View style={styles.postHeader}>
-            <View style={styles.postProfile}>
-            </View>
-
-            <View style={styles.postUserInfo}>
-              <Text style={styles.postName}>Ariel</Text>
-              <Text style={styles.postUsername}>@ariel</Text>
-            </View>
-          </View>
-
-          <Text style={styles.postText}>
-            {/* texto do post */}
-            ariel
-          </Text>
-
-          <View style={styles.postActions}>
-
-            <Pressable>
-              <IconSymbol
-                size={20}
-                name="paperplane.fill"
-                color="#A0A0A0"
-              />
-            </Pressable>
-
-            <Pressable>
-              <IconSymbol
-                size={20}
-                name="paperplane.fill"
-                color="#A0A0A0"
-              />
-            </Pressable>
-
-            <Pressable>
-              <IconSymbol
-                size={20}
-                name="paperplane.fill"
-                color="#A0A0A0"
-              />
-            </Pressable>
-
-          </View>
-
-        </View>
       </ScrollView>
 
     </View>
@@ -93,11 +60,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#1E1E1E',
   },
 
+  fundo: {
+    height: 180,
+    width: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+
   profile: {
     width: 40,
     height: 40,
     borderRadius: 20,
     backgroundColor: '#555',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   title: {
@@ -113,47 +89,5 @@ const styles = StyleSheet.create({
   content: {
     paddingVertical: 10,
   },
-
-  post: {
-    width: '100%',
-    padding: 15,
-  },
-
-  postHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  postProfile: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#555',
-  },
-
-  postUserInfo: {
-    marginLeft: 10,
-  },
-
-  postName: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-
-  postUsername: {
-    color: '#c1c1c1',
-    fontSize: 14,
-  },
-
-  postText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-  },
-
-  postActions: {
-    flexDirection: 'row',
-    gap: 30,
-  }
 
 });
